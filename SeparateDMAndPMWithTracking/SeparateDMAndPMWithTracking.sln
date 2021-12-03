@@ -1,15 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeparateDMAndPMWithTracking", "SeparateDMAndPMWithTracking\SeparateDMAndPMWithTracking.csproj", "{B2A88F8F-8614-4AA1-A35F-F916152FE3D1}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseScripts", "DatabaseScripts", "{CBD7657B-95E9-4BA4-A0BF-A1A2303A1B2E}"
 	ProjectSection(SolutionItems) = preProject
 		CreateDb.sql = CreateDb.sql
 		FillTestData.sql = FillTestData.sql
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2", "V2", "{3C96B4C2-9AA5-4679-A492-5CC3554CF586}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1", "V1", "{1C693FCE-7C64-4647-AB3E-14CDB2F323CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeparateDMAndPMWithTracking", "V1\SeparateDMAndPMWithTracking\SeparateDMAndPMWithTracking.csproj", "{454B229D-6ABB-4A48-B335-DF3EBD2A59CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeparateDMAndPMWithTrackingV2", "V2\SeparateDMAndPMWithTrackingV2\SeparateDMAndPMWithTrackingV2.csproj", "{3D4AF841-FEED-4D51-8758-8A0524830167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeparateDMAndPMWithTrackingV2.Tests", "V2\SeparateDMAndPMWithTrackingV2.Tests\SeparateDMAndPMWithTrackingV2.Tests.csproj", "{9EBB28C4-7F3B-498C-BDC4-3C8B0A9CA099}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,13 +25,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B2A88F8F-8614-4AA1-A35F-F916152FE3D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2A88F8F-8614-4AA1-A35F-F916152FE3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2A88F8F-8614-4AA1-A35F-F916152FE3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2A88F8F-8614-4AA1-A35F-F916152FE3D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{454B229D-6ABB-4A48-B335-DF3EBD2A59CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454B229D-6ABB-4A48-B335-DF3EBD2A59CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454B229D-6ABB-4A48-B335-DF3EBD2A59CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454B229D-6ABB-4A48-B335-DF3EBD2A59CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4AF841-FEED-4D51-8758-8A0524830167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4AF841-FEED-4D51-8758-8A0524830167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4AF841-FEED-4D51-8758-8A0524830167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4AF841-FEED-4D51-8758-8A0524830167}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EBB28C4-7F3B-498C-BDC4-3C8B0A9CA099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EBB28C4-7F3B-498C-BDC4-3C8B0A9CA099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EBB28C4-7F3B-498C-BDC4-3C8B0A9CA099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EBB28C4-7F3B-498C-BDC4-3C8B0A9CA099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CBD7657B-95E9-4BA4-A0BF-A1A2303A1B2E} = {1C693FCE-7C64-4647-AB3E-14CDB2F323CC}
+		{454B229D-6ABB-4A48-B335-DF3EBD2A59CA} = {1C693FCE-7C64-4647-AB3E-14CDB2F323CC}
+		{3D4AF841-FEED-4D51-8758-8A0524830167} = {3C96B4C2-9AA5-4679-A492-5CC3554CF586}
+		{9EBB28C4-7F3B-498C-BDC4-3C8B0A9CA099} = {3C96B4C2-9AA5-4679-A492-5CC3554CF586}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {465333A5-8C33-4F06-A1A4-9EE0D489DA95}
