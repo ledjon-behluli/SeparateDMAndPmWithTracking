@@ -7,12 +7,12 @@ namespace SeparateDMAndPMWithTrackingV2.Tests
 {
     public class Tests
     {
-        readonly IBankAccountState bankAccountEntity;
+        readonly IBankAccountState bankAccountState;
         readonly BankAccount bankAccount;
 
         public Tests()
         {
-            bankAccountEntity = new BankAccountEntity()
+            bankAccountState = new BankAccountEntity()
             {
                 Id = Guid.NewGuid(),
                 Name = "John Smith",
@@ -20,7 +20,7 @@ namespace SeparateDMAndPMWithTrackingV2.Tests
                 Frozen = false
             };
 
-            bankAccount = new BankAccount(bankAccountEntity);
+            bankAccount = new BankAccount(bankAccountState);
         }
 
         [Fact]
@@ -57,15 +57,15 @@ namespace SeparateDMAndPMWithTrackingV2.Tests
         {
             var state = bankAccount.GetState();
 
-            Assert.Equal(bankAccountEntity.Id, state.Id);
-            Assert.Equal(bankAccountEntity.Name, state.Name);
-            Assert.Equal(bankAccountEntity.Balance, state.Balance);
-            Assert.Equal(bankAccountEntity.Frozen, state.Frozen);
-            Assert.Equal(bankAccountEntity.Reason, state.Reason);
+            Assert.Equal(bankAccountState.Id, state.Id);
+            Assert.Equal(bankAccountState.Name, state.Name);
+            Assert.Equal(bankAccountState.Balance, state.Balance);
+            Assert.Equal(bankAccountState.Frozen, state.Frozen);
+            Assert.Equal(bankAccountState.Reason, state.Reason);
 
 
             bankAccount.Deposit(100m);
-            Assert.NotEqual(bankAccountEntity.Balance, state.Balance);
+            Assert.NotEqual(bankAccountState.Balance, state.Balance);
         }
 
         [Fact]
@@ -74,19 +74,19 @@ namespace SeparateDMAndPMWithTrackingV2.Tests
             Assert.Throws<Exception>(() => bankAccount.Status.Freeze(string.Empty));
 
             bankAccount.Status.Freeze("Fraud detected.");
-            Assert.True(bankAccountEntity.Frozen);
+            Assert.True(bankAccountState.Frozen);
 
             Assert.Throws<Exception>(() => bankAccount.Deposit(100m));
             Assert.Throws<Exception>(() => bankAccount.Withdraw(100m));
 
             bankAccount.Status.Unfreeze();
-            Assert.False(bankAccountEntity.Frozen);
+            Assert.False(bankAccountState.Frozen);
 
             bankAccount.Deposit(100m);
-            Assert.Equal(1100m, bankAccountEntity.Balance);
+            Assert.Equal(1100m, bankAccountState.Balance);
 
             bankAccount.Withdraw(100m);
-            Assert.Equal(1000m, bankAccountEntity.Balance);
+            Assert.Equal(1000m, bankAccountState.Balance);
         }
     }
 }
